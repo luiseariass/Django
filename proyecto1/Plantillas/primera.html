@@ -1,8 +1,16 @@
 <html>
 	<body>
-		<h1 style="color: red">
+		{% include "barras/barra.html"%}
+
+		<h2 style="color: red">
 			Hola mundo desde plantilla
-		</h1>
+		</h2>
+
+		{% if Nombre_programador == "Luis Enrique"%}
+			<p>El programador principal</p>
+		{% else %}
+			<p>"Sigamos trabajando"</p>
+		{% endif %}
 		<p>El nombre del programador es: {{Nombre_programador}} {{Apellido_programador}}</p>
 
 		<p>Que dia es: {{Ahora.day}}/ {{Ahora.month}} /{{Ahora.year}} </p>

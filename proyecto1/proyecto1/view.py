@@ -1,8 +1,8 @@
 import os
 from django.http import HttpResponse
 import datetime
-from django.template import Template, Context
-
+from django.template import Template, Context, loader
+from django.shortcuts import render
 class Persona(object):
 	
 	def __init__(self, nombre,apellido):
@@ -11,24 +11,11 @@ class Persona(object):
 		self.apellido = apellido
 
 def saludo(request):
-    # Entrar al directorio de plantillas
-    script_dir = os.path.dirname(__file__)
-    rel_path = "../Plantillas/primera.html"
-    abs_file_path = os.path.join(script_dir, rel_path)
-    doc_externo = open(abs_file_path)
-    plant = Template(doc_externo.read())
-    doc_externo.close()
     p1= Persona("Luis Enrique","Arias Serrano")
     ahora = datetime.datetime.now()
-    #temas=["Plantillas","Modelos","Formulario","Vistas","Aplicaciones"]
-    temas=[]
-    cnt = Context({'Nombre_programador': p1.nombre,
-                   'Apellido_programador': p1.apellido,'Ahora':ahora,"Temas":temas})
-    
-    documento = plant.render(cnt)
-
-    return HttpResponse(documento)
-
+    temas=["Plantillas","Modelos","Formulario","Vistas","Aplicaciones"]
+    cnt = {'Nombre_programador': p1.nombre,'Apellido_programador': p1.apellido,'Ahora':ahora,"Temas":temas}
+    return render(request,'primera.html',cnt)
 
 def despedida(request):
 
@@ -60,3 +47,17 @@ def calculaedad(request, agno):
 	</body>
 	</html>""" % (agno, EdadFutura)
     return(HttpResponse(documento))
+
+
+def Curso_Django(request):
+	p1= Persona("Pildora","Informativa")
+	cnt={'Profesor':p1}
+	
+	return render(request,"Curso_Django.html",cnt)
+
+def Curso_PHP(request):
+	p1= Persona("Victor","Robles")
+	cnt={'Profesor':p1}
+	
+	return render(request,"Curso_PHP.html",cnt)
+		
