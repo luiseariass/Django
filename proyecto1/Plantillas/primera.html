@@ -1,0 +1,21 @@
+<html>
+	<body>
+		<h1 style="color: red">
+			Hola mundo desde plantilla
+		</h1>
+		<p>El nombre del programador es: {{Nombre_programador}} {{Apellido_programador}}</p>
+
+		<p>Que dia es: {{Ahora.day}}/ {{Ahora.month}} /{{Ahora.year}} </p>
+
+		<p><strong>Listas de temas</strong></p>
+		{% if Temas%}
+			<ul>
+				{%for l in Temas %}
+					<li>{{l}}</li>
+		    	{% endfor %}
+			</ul>
+		{% else %}
+			<p>No hay temas en el curso</p>
+		{% endif %}
+	</body>
+</html>
