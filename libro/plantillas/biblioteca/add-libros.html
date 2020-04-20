@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Agregar un libro nuevo</title>
+</head>
+<body>
+	<h1>Agregar un libro</h1>
+	
+	<form method="post">{% csrf_token %}
+		{{form.as_p}}
+		<button type="submit" name="button">
+			Guardar
+		</button>	
+	</form>
+</body>
+</html>

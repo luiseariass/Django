@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Modifica un autor</title>
+</head>
+<body>
+	<h1>Modificar un autor</h1>
+	
+	<form method="post">{% csrf_token %}
+		{{form.as_p}}
+		<button type="submit" name="button">
+			Guardar
+		</button>	
+	</form>
+</body>
+</html>

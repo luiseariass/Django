@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Agregar un autor nuevo</title>
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'biblioteca/estilo.css' %}">
+</head>
+<body>
+	<h1>Agregar un autor</h1>
+	
+	<form method="post">{% csrf_token %}
+		{{form.as_p}}
+		<button type="submit" name="button" class="boton">
+			Guardar
+		</button>	
+	</form>
+	<p></p>
+	<a href = "{% url 'lista-autores' %}" class="btn small">Regresar </a>	
+</body>
+</html>

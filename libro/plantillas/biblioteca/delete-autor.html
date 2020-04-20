@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Eliminar un autor</title>
+</head>
+<body>
+	<h1>Seguro que quiere eliminar el siguiente autor</h1>
+	<h2><a href="{% url  'lista-autores' %}">no</a></h2>
+	<p></p>
+	<form method="post">{% csrf_token %}
+		{{form.as_p}}
+		<button type="submit" name="button">
+			Eliminar
+		</button>	
+	</form>
+</body>
+</html>

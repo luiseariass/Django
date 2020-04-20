@@ -1,27 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Lista autores</title>
+	<title>Lista de autores</title>
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'biblioteca/estilo.css' %}">
 </head>
 <body>
+<div>
 <h1>Lista de Autores registrados</h1>
 <table border="1">
 	<thead>
+		<th>ID</th>
 		<th>Nombres</th>
 		<th>Nacionalidad</th>
-		<th>Accion</th>
+		<th colspan="3">Accion </th>
 	</thead>
 	<tbody>
 		{% for a in autores %}
 		<tr>
+			<td>{{a.id}}</td>
 			<td>{{a.nombre}}</td>
 			<td>{{a.nacionalidad}}</td>
-			<td><a href="#">VER</a></td>
+			<td><a href = "{% url  'lista-libro' a.id %}">Ver Libros </a></td>
+			<td><a href = "{% url  'update-autor' a.id %}">Modificar Autor </a></td>
+			<td><a href = "{% url  'delete-autor' a.id %}">Eliminar Autor </a></td>
 		</tr>
 		{% endfor %}
 		
 	</tbody>
 </table>
-			
+<p></p>
+
+<a href = "{% url 'add-autor' %}" class="btn">Agregar Autor </a>	
+</div>		
 </body>
 </html>
