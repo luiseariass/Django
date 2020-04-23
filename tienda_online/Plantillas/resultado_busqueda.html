@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Resultados de su busqueda</title>
+</head>
+<body>
+	{% if  caso == 0%}
+		<p>Estas Buscando el articulo: <strong>{{query}}</strong></p>
+		{% if articulos %}
+		{% if tamano == 1%}
+			<p>Se ha encontado un solo articulo:</p>
+			<ul>
+				<li>{{articulos.0.nombre}}</li>
+			</ul>	
+		{% else %}
+			<p>Se han encontado {{tamano}} articulos </p>
+			<ul>
+				{% for a in articulos  %}
+					<li>{{a.nombre}}</li>
+				{% endfor %}				
+			</ul>
+		{% endif %}
+			
+		{% else %}
+			<p>No se ha encontrado el articulo: <b>{{query}}</b> </p>
+		{% endif %}	
+	{% else %}
+		
+		{% if tamano == 1%}
+			<p>Se ha encontado un solo articulo en la sección: <b>{{seccion}}</b></p>
+			<ul>
+				<li>{{query.0.nombre}}</li>
+			</ul>	
+		{% elif tamano > 1%}
+			<p>Se han encontado {{tamano}} articulos en la sección: <b>{{seccion}}</b> </p>
+			<ul>
+				{% for a in query  %}
+					<li>{{a.nombre}}</li>
+				{% endfor %}				
+			</ul>					
+		{% else %}
+			<p>No se ha encontrado el articulo en la sección: <b>{{seccion}}</b> </p>
+		{% endif %}	
+
+	{% endif %}	
+		
+	<form action='/busqueda-producto' method='GET'>
+		<input type="submit" value='Regresar'>
+	</form>
+</body>
+</html>

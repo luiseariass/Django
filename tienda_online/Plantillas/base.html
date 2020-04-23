@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		{% block title %}{% endblock %}
+	</title>
+</head>
+<body>
+	
+	<h1 style="background-color:#0A2FED ; color:#F58B0F;text-align: center">
+	Aprendiendo</h1>
+	{% include "barras/barra.html"%}
+	<br>
+	{% block content %}{% endblock %}
+
+	<p style="background-color:#0A2FED ; color:#F58B0F;text-align: right"> Seguimos avanzando</p>
+</body>
+</html>

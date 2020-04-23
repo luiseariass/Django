@@ -3,10 +3,15 @@ from django.db import models
 
 class Clientes(models.Model):
     nombre = models.CharField(max_length=45)
-    direccion = models.CharField(max_length=60)
-    email = models.EmailField()
+    direccion = models.CharField(max_length=60,verbose_name='La dirección')
+    email = models.EmailField(blank=True,null=False)
     telefono = models.CharField(max_length=10)
 
+    def __str__(self):
+        return self.nombre
+    class Meta:
+        ordering =  ['nombre']
+    
 
 class Articulos(models.Model):
     nombre = models.CharField(max_length=40)
