@@ -14,6 +14,7 @@ class Author(models.Model):
 
     class Meta:
         ordering = ['last_name']
+        permissions = (("can_modify_author", "Add, Modify and Delete author"),)
 
     def get_absolute_url(self):
         """Returns the url to access a particular author instance."""
@@ -49,6 +50,7 @@ class Book(models.Model):
         return self.title
     class Meta:
         ordering = ['title']
+        permissions = (("can_modify_book", "Add, Modify and Delete book"),)
     
     def get_absolute_url(self):
         """Returns the url to access a detail record for this book."""
