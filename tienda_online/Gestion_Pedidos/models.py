@@ -27,3 +27,6 @@ class Pedidos(models.Model):
     numero = models.IntegerField()
     fecha = models.DateField()
     entrega = models.BooleanField()
+    def __str__(self):
+
+        return ('%s%s' %(self.id, self.fecha))

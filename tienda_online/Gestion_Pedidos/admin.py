@@ -10,7 +10,6 @@ class Articulos_Admin(admin.ModelAdmin):
 	list_filter=('seccion',)
 
 class Pedidos_Admin(admin.ModelAdmin):
-	list_display=('numero','fecha')
 	list_filter=('fecha',)
 	date_hierarchy = 'fecha'
 
